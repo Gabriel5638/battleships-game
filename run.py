@@ -1,39 +1,73 @@
-"""
-Hidden and Guess board.
-"""
-HIDDEN_BOARD = [[' '] * 8 for x in range(8)]
-GUESS_BOARD = [[' '] * 8 for x in range(8)]
+from random import randint
 
-letters_to_numbers = {
-    'A': 0,
-    'B': 1,
-    'C': 2,
-    'D': 3,
-    'E': 4,
-    'F': 5,
-    'G': 6,
-    'H': 7
-}
+score = {"computer": 0, "player": 0}
 
-# functions
-
-  def print_board(board):
-    print("  A B C D E F G H")
-    print("  +-+-+-+-+-+-+-+")
-    row_number = 1
-    for row in board:
-        print("%d|%s|" % (row_number, "|".join(row)))
-        row_number += 1
-        
-  def create_ships():
+class Board:
     pass
 
-def get_ship_location():
-    pass
+class GameBoard:
+    def __init__(self, size, num_ships, name, type):
+        self.size = size
+        self.board = [["." for x in range(size)] for y in range(size)]
+        self.num_ships = num_ships
+        self.name = name
+        self.type = type
+        self.guesses = []
+        self.ships = []
 
-def count_hit_ships():
-    pass
 
-create_ships()
+def print(self):
+    for row in self.board:
+        print(" ".join(row))
 
-turns = 10
+def guess(self, x, y):
+    self.board[x][y] = "X"
+
+
+if (x, y) in self.ships:
+    self.board[x] [y] = "*"
+    return 'Hit'
+else:
+    return 'Miss'
+
+def add_ship(self, x, y, type="computer"):
+    if len(self.ships) >= self.num_ships:
+        print("Error: you cannot add any more ships")
+    else:
+        self.ships.append((x, y))
+        if self.type == "player":
+            self.board[x][y] = "@"
+
+
+
+
+def random_point(size):
+
+    return randint(0, size -1)
+
+
+def valid_coordinates(x, y, board):
+
+    
+def populate_board(board):
+
+
+def make_guess(board):
+
+
+def play_game(computer_board, player_board):
+
+
+def new_game():
+
+    size = 5
+    num_ships = 4
+    scores[computer] = 0
+    scores[player] = 0
+    print("-" * 35)
+    print("Welcome to title of game!")
+    print(f"Board Size:{size},Number of ships: {num_ships}")
+    print("Top left corner is row: 0, col: 0")
+    print("-" * 35)
+    player_name =  input("Enter your name here: \n")
+    print("-" * 35)
