@@ -49,13 +49,20 @@ def random_point(size):
 def valid_coordinates(x, y, board):
 
     
-def populate_board(board):
+ def populate_board(board):
+    for i in range(board.num_ships):
+        x = randint(0, board.size - 1)
+        y = randint(0, board.size - 1)
+        if (x, y) not in board.ships:
+            board.add_ship((x, y))
+           
 
 
-def make_guess(board):
+
+ def make_guess(board):
 
 
-def play_game(computer_board, player_board):
+ def play_game(computer_board, player_board):
 
 
 def new_game():
@@ -71,3 +78,16 @@ def new_game():
     print("-" * 35)
     player_name =  input("Enter your name here: \n")
     print("-" * 35)
+
+    computer_board = Board(size, num_ships, "Computer", type="computer")
+    player_board = Board(size, num_ships, player_name, type="player")
+
+    for _ in range(num_ships):
+        populate_board(player_board)
+        populate_board(computer_board)
+
+        play_game(computer_board, player_board)
+
+
+
+new_game()
